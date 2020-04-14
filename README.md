@@ -31,7 +31,7 @@ API creds req'd as properties on resource [portal].logicmonitor.com or a collect
 - lm2cw.lm_id=API Token Access ID
 - lm2cw.lm_key.pass=API Token Access Key
 
-Each device to be synchronized into CW requires a companyid property which is the numeric id of the company to which the device belongs in CW. That property name is "cw_company".  It must also have a valid type, i.e. the type must exist in CW. The type is specified by the property "cw_type". This property can be specified on a device level or as a group level property, inherited by all children of the group.
+Each device to be synchronized into CW requires a companyid property which is the Identifier (unique name in the form of a string) of the company to which the device belongs in CW. That property name is "cw_company".  It must also have a valid type, i.e. the type must exist in CW. The type is specified by the property "cw_type". This property can be specified on a device level or as a group level property, inherited by all children of the group.
 
 **Type lookups are performed by name, and users must be certain to match fields between CW and LM precisely**
 

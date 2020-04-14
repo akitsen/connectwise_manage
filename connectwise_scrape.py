@@ -393,7 +393,11 @@ if raw_response['code'] in (200, 201):
         {"questionId": 23, "answer": "File & Print Server"},
         {"questionId": 32, "answer": "Windows 2003 Standard Server"}
       ]
-
+    if type == "Website":
+      device_array[device_name]["questions"] = [
+        {"questionId": 63, "answer": "https://google.com"},
+        {"questionId": 59, "answer": "Zeus"}
+      ]
     log_msg(f"Done extracting properties", "DEBUG")
     log_msg(f"Raw device details: {item}", "DEBUG")
     log_msg(f"Extracted properties: {device_array[device_name]}", "DEBUG")
