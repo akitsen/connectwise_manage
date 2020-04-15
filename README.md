@@ -5,16 +5,23 @@ This script synchronizes resources from LogicMonitor into ConnectWise Manage CMD
 
 ## Installation
 
-To install this package, run the following at your command line:
+To download this package, run the following at your command line:
 
 ```
-git clone https://github.com/ianbloom/connectwise_manage.git
+git clone https://github.com/sweenig/connectwise_manage
 ```
 
-Then, run the following:
+Make sure that your python3 environment has the requests module installed. This can be done with:
 
 ```
-sudo python setup.py install
+pip3 install requests
+```
+
+If pip3 isn't installed, run the following, then try again:
+
+```
+curl -O https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
 ```
 
 ## Setup
