@@ -1,4 +1,4 @@
-# connectwise_manage
+# ConnectWise <-> LogicMonitor
 
 ## Introduction
 This script synchronizes resources from LogicMonitor into ConnectWise Manage CMDB. It can be used as the script for a Python based datasource in LogicMonitor so that it runs on a regular schedule and reports back the count of devices in each state. This also allows for thresholding/alarming.
@@ -29,14 +29,18 @@ sudo python3 get-pip.py
 Synchronizes devices from LM to CW Manage CMDB and reports on the number of devices in each state: failed to synchronize, synchronized new, synchronized existing. Synchronization uses display name as the unique ID. Changing the display name in LM will result in an orphan in CW and a newly created CI.
 
 API creds req'd as properties on resource [portal].logicmonitor.com or a collector:
-- lm2cw.cw_agentid.pass=agentid from CW through dev portal. This IDs the integration itself.
-- lm2cw.cw_company=CW company
-- lm2cw.cw_private.pass=CW private key
-- lm2cw.cw_public=CW public key
-- lm2cw.cw_site=instance hosting site FQDN (staging.connectwisedev.com)
-- lm2cw.lm_company=LM portal name. For acme.logicmonitor.com: "acme"
-- lm2cw.lm_id=API Token Access ID
-- lm2cw.lm_key.pass=API Token Access Key
+
+| Property              	| Description                                                           	|
+|-----------------------	|-----------------------------------------------------------------------	|
+| lm2cw.cw_agentid.pass 	| ConnectWise AgentId from DEV portal. This IDs the integration itself. 	|
+| lm2cw.cw_company      	| ConnectWise Company                                                   	|
+| lm2cw.cw_private      	| ConnectWise Private Key                                               	|
+| lm2cw.cw_public       	| ConnectWise Public Key                                                	|
+| lm2cw.cw_site         	| Instance hosting site FQDN (staging.connectwisedev.com)               	|
+| lm2cw.lm_company      	| LogicMonitor portal name. For acme.logicmonitor.com: "acme"           	|
+| lm2cw.lm_id           	| LogicMonitor API Token Access ID                                      	|
+| lm2cw.lm_key          	| LogicMonitor API Token Access Key                                     	|
+|                       	|                                                                       	|
 
 Each device to be synchronized into CW requires a companyid property which is the Identifier (unique name in the form of a string) of the company to which the device belongs in CW. That property name is "cw_company".  It must also have a valid type, i.e. the type must exist in CW. The type is specified by the property "cw_type". This property can be specified on a device level or as a group level property, inherited by all children of the group.
 
